@@ -1,0 +1,12 @@
+ __  _   ___   ___ ___   ____
+|  l/ ] /   \ |   T   T /    T
+|  ' / Y     Y| _   _ |Y  o  |
+|    \ |  O  ||  \_/  ||     |
+|     Y|     ||   |   ||  _  |
+|  .  |l     !|   |   ||  |  |
+l__j\_j \___/ l___j___jl__j__j
+
+${spring.application.name} ${spring.application.version}
+Powered by Spring Boot ${spring-boot.version}
+--== Server ==--
+PORT: ${server.port}

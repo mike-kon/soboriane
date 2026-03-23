@@ -1,0 +1,21 @@
+server:
+  port: 9300
+spring:
+  application:
+    name: soboriane
+    version: 1.0.0
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    hikari:
+      schema: soboriane
+  liquibase:
+    enabled: ${LIQUIBASE:true}
+    default-schema: soboriane
+    liquibase-schema: liquibase
+    change-log: db/changelog/db.changelog-master.xml
+logging:
+  level:
+    root: info
+
