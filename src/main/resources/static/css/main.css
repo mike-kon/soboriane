@@ -2,6 +2,7 @@ body {
     margin: 0 0 0 0;
     display: flex;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .main {
@@ -11,6 +12,15 @@ body {
     height: 100%;
     width: 100vb;
     overflow: auto;
+}
+
+.line {
+    display: block;
+    height: 3px;
+    border: none;
+    border-top: 3px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
 }
 
 .button-line {
@@ -50,7 +60,11 @@ body {
     cursor: pointer;
 }
 
-.divMessage{
+/************************************
+  messages
+ *************************************/
+
+.divMessage {
     margin: 10pt auto;
     display: block;
     height: calc(100vh - 66pt);
@@ -73,7 +87,7 @@ body {
     margin: 10pt auto;
     padding: 10pt 0 0 0;
     background-color: beige;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .messageBox {
@@ -121,3 +135,117 @@ body {
     float: right;
     margin: 0 0 0 0;
 }
+
+/************************************
+  Psaltir
+ *************************************/
+
+.psaltir {
+    margin: 0.5vh 0.7vw 0.5vh 1.5vw;
+    border-style: solid;
+    border-width: 2pt;
+    padding: 0.5vh 0.7vw 0.5vh 1vw;
+}
+
+.psaltir-info {
+    display: inline-block;
+    max-height: 5vh;
+    background-color: aquamarine;
+    overflow: hidden;
+}
+
+.psaltir-info-date {
+    display: inline-block;
+    float: left;
+}
+
+.psaltir-info-user {
+    display: inline-block;
+    float: right;
+}
+
+.psaltir-info-calendar {
+    display: inline-block;
+    float: left;
+}
+
+.kafisma {
+    display: block;
+    height: calc(85vh);
+    background-color: beige;
+    overflow: auto;
+}
+
+.kafismata-head {
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    padding: 0 0 1vw 0;
+}
+.psalom-head {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    padding: 0 0 1vw 0;
+}
+.psaltir-preopening-prayers {
+    text-align: justify;
+    font-style: italic;
+    padding: 1vw 0 1vw 0;
+}
+
+.psaltir-open-prayers {
+    text-align: justify;
+    font-weight: bold;
+    padding: 1vw 0 1vw 0;
+}
+
+.partisipant-list {
+    text-align: justify;
+    padding: 1vw 0 1vw 0;
+}
+
+.psalom-text {
+    text-align: justify;
+    font-family: cursive;
+    font-size: large;
+}
+
+.psalom-line-number {
+    color: red;
+    font-style: italic;
+}
+
+.slava-head {
+    text-align: justify;
+    font-style: italic;
+    padding: 1vw 0 1vw 0;
+}
+
+.slava-head-begin {
+    font-style: normal;
+    font-weight: bold;
+}
+
+.memorial-list-head {
+    text-align: justify;
+    padding: 1vw 0 1vw 0;
+}
+
+.memorial-list-head-begin {
+    font-weight: bold;
+}
+
+.memorial-list {
+    text-align: left;
+    font-weight: bold;
+}
+
+.memorial-list-begin {
+    font-weight: normal;
+}
+
+.slava-foot {
+    padding: 1vw 0 1vw 0;
+}
+
