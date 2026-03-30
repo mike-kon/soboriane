@@ -32,6 +32,12 @@
     width: 100%;
 }
 
+.opponentName {
+    font-weight: bold;
+    padding: 1pt 0 0 5pt;
+    color: green;
+}
+
 .messageOpponent {
     margin: 0 4vw 0 1vw;
     padding: 0 1vw 0 1vw;

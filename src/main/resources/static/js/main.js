@@ -81,7 +81,7 @@ function getTextWidthFromElement($element, text) {
 
 function init() {
     updateTextByWidth();
-    $('#messageCanvas').scrollTop(1000);
+    $('#messageCanvas').scrollTop(1000000);
 }
 
 window.addEventListener('load', init);
