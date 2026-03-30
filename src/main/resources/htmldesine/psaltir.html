@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="../static/css/main.css">
-    <script src="../static/js/main.js"></script>
+    <link rel="stylesheet" href="../static/css/psaltir.css">
     <script src="../static/js/jquery-4.0.0.min.js"></script>
+    <script src="../static/js/main.js"></script>
+
 </head>
 <body>
 <div class="main">
@@ -15,16 +18,24 @@
         <button id="btnAdmin" class="button button_unpress" onclick="clickMainButton(this)">Администрирование</button>
     </div>
     <div class="psaltir">
-        <div class="psaltir-info">
-            <div class="psaltir-info-date">
-                Сегодня 28 (14) марта 2026 года.
+        <div class="psaltir-info dynamic-title">
+            <div class="psaltir-info-date dynamic-elem"
+                 data-full="Сегодня 28 (14) марта 2026 года."
+                 data-medium="28 (14) марта 2026 г."
+                 data-small="28.03.2026">
+                ???.
             </div>
-            <div class="psaltir-info-user">
-                Участник № 7 сегодня читает Кафизму № 16
+            <div class="psaltir-info-user dynamic-elem"
+                 data-full="Участник № 7 сегодня читает Кафизму № 16"
+                 data-medium="Для № 7 Кафизма № 16"
+                 data-small="7 -> 16">
+                ???
             </div>
+            <!--
             <div class="psaltir-info-calendar">
                 Седмица 5-я Великого поста. Похвала Пресвятой Богородицы (Суббота Акафиста)
             </div>
+            -->
         </div>
 
         <div class="kafisma">
