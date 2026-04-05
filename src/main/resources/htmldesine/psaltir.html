@@ -5,18 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="../static/css/main.css">
-    <link rel="stylesheet" href="../static/css/menu-left.css">
+    <link rel="stylesheet" href="../static/css/menu-top.css" media="(min-width:500px)">
+    <link rel="stylesheet" href="../static/css/menu-button.css" media="(max-width:499px)">
     <link rel="stylesheet" href="../static/css/psaltir.css">
     <script src="../static/js/jquery-4.0.0.min.js"></script>
     <script src="../static/js/main.js"></script>
 
 </head>
 <body>
-<div class="main">
-    <div class="menu">
-        <button id="btnMessage" class="button button_unpress" onclick="clickMainButton(this)">Сообщения</button>
-        <button id="btnText" class="button button_press" onclick="clickMainButton(this)">Псалтирь</button>
-        <button id="btnAdmin" class="button button_unpress" onclick="clickMainButton(this)">Администрирование</button>
+<div id="main">
+    <div id="menu">
+        <div id="menuContext">
+            <button id="btnMessage" class="button button_press" onclick="clickMainButton(this)">Сообщения</button>
+            <button id="btnText" class="button button_unpress" onclick="clickMainButton(this)">Псалтирь</button>
+            <button id="btnAdmin" class="button button_unpress" onclick="clickMainButton(this)">Администрирование
+            </button>
+        </div>
     </div>
     <div class="psaltir">
         <div class="psaltir-info dynamic-title">
