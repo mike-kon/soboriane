@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/menu-left.css">
+    <link rel="stylesheet" href="../static/css/psaltir.css">
+    <script src="../static/js/jquery-4.0.0.min.js"></script>
+    <script src="../static/js/main.js"></script>
+
+</head>
+<body>
+<div class="main">
+    <div class="menu">
+        <button id="btnMessage" class="button button_unpress" onclick="clickMainButton(this)">Сообщения</button>
+        <button id="btnText" class="button button_press" onclick="clickMainButton(this)">Псалтирь</button>
+        <button id="btnAdmin" class="button button_unpress" onclick="clickMainButton(this)">Администрирование</button>
+    </div>
+    <div class="psaltir">
+        <div class="psaltir-info dynamic-title">
+            <div class="psaltir-info-date dynamic-elem"
+                 data-full="Сегодня 28 (14) марта 2026 года."
+                 data-medium="28 (14) марта 2026 г."
+                 data-small="28.03.2026">
+                ???.
+            </div>
+            <div class="psaltir-info-user dynamic-elem"
+                 data-full="Участник № 7 сегодня читает Кафизму № 16"
+                 data-medium="Для № 7 Кафизма № 16"
+                 data-small="7 -> 16">
+                ???
+            </div>
+            <!--
+            <div class="psaltir-info-calendar">
+                Седмица 5-я Великого поста. Похвала Пресвятой Богородицы (Суббота Акафиста)
+            </div>
+            -->
+        </div>
+
+        <div class="kafisma">
+            <div class="psaltir-preopening-prayers">
+                Молитвами святых отец наших, Господи Иисусе Христе,
+                Боже наш, помилуй нас. Аминь. Царю
+                Небесный…Трисвятое…Слава, и ныне… Пресвятая
+                Троице…. Господи, помилуй (3) Слава, и ныне…Отче наш…
+                Господи, помилуй (12). Слава, и ныне… Приидите
+                поклонимся (3).
+            </div>
+            <div class="psaltir-open-prayers">
+                Господи, ско́рый в заступле́нии и кре́пкий в по́мощи,
+                предста́ни ны́не благода́тию силы Твоея́, и благослови́,
+                укрепи́ и помилуй нас, рабов Твоих, моля́щихся в согла́сии:
+            </div>
+            <div class="partisipant-list">
+                Галину, Наталию, Ксению, Елену, Любовь, Людмилу,
+                Михаила, Елизавету, Людмилу, Русудан, Елену, Елену,
+                Татиану, Галину, Наталию, Татиану, Наталию, Ольгу, Ольгу,
+                Фотинию, Людмилу.
+            </div>
+            <hr class="line">
+            <div class="kafismata-head">Кафизма 16</div>
+            <div class="psalom-head">Псалом 109</div>
+            <div class="psalom-text">
+                <span class="psalom-line-number">1.</span>
+                <span>
+                    Рече́ Госпо́дь Го́сподеви моему́: седи́ одесну́ю Мене́, до́ндеже положу́ враги́ Твоя́ подно́жие ног Твои́х.
+                </span>
+                <br>
+                <span class="psalom-line-number">2.</span>
+                <span>
+                    Жезл си́лы по́слет ти Госпо́дь от Сио́на, и госпо́дствуй посреде́ враго́в Твои́х.
+                </span>
+                <br>
+                <span class=" psalom-line-number">3.</span>
+                <span>
+                    С Тобо́ю нача́ло в день си́лы Твоея́, во све́тлостех святы́х Твои́х, из чре́ва пре́жде денни́цы роди́х Тя.
+                </span>
+                <br>
+                <span class=" psalom-line-number">4.</span>
+                <span>
+                    Кля́тся Госпо́дь и не раска́ется: Ты иере́й во век, по чи́ну Мелхиседе́кову.
+                </span>
+                <br>
+                <span class=" psalom-line-number">5.</span>
+                <span>
+                    Госпо́дь одесну́ю Тебе́ сокруши́л есть в день гне́ва Своего́ цари́.
+                </span>
+                <br>
+                <span class=" psalom-line-number">6.</span>
+                <span>
+                    Су́дит во язы́цех, испо́лнит паде́ния, сокруши́т главы́ на земли́ мно́гих.
+                </span>
+                <br>
+                <span class=" psalom-line-number">7.</span>
+                <span>
+                    От пото́ка на пути́ пие́т, сего́ ра́ди вознесе́т главу́.
+                </span>
+                <br>
+            </div>
+            <hr class="line">
+            <div class="slava-head">
+                <span class="slava-head-begin">I Слава:</span>
+                <span>Слава Отцу и Сыну и Святому Духу, и ныне и присно и во веки веков.
+            Аминь. Аллилуия, аллилуия, аллилуия, слава Тебе, Боже (3). Господи, помилуй (3).
+                Слава, и ныне… Аминь. </span>
+            </div>
+            <div class="memorial-list-head">
+                <span class="memorial-list-head-begin">Воспомяни́, Го́споди, во Ца́рствии Твое́м:</span>
+                <span> Великого Господина и Отца нашего Святейшего Патриарха Кирилла, еп.Мефодия, еп.Пантелеимона,
+                прот.Иоанна, прот.Павла с семьей, иер.Александра с семьей, иер.Александра с семьей,
+                иер.Павла с семьей, диак.Вячеслава с семьей, диак.Андрея с семьей, иеромонаха Германа</span>
+            </div>
+            <div class="memorial-list">
+                <span class="memorial-list-begin">1.</span>
+                <span>Анастасию, Александра, мл. Демида, Елисавету, Ирину, Татьяну;</span>
+                <br>
+                <span class="memorial-list-begin">7.</span>
+                <span>Елисавету, Анну, Марию, Пелагию, Елену, Александра;</span>
+                <br>
+            </div>
+            <div class="slava-foot">
+                и всех наших сродников и близких, и всех православных христиан. Да́руй им,
+                Господи, благоде́нственное и ми́рное житие́,
+                здра́вие, спасение и во всем благое поспеше́ние, ныне и присно и во веки веков. Аминь.
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
