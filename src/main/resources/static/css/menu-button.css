@@ -1,0 +1,38 @@
+#menu {
+    position: fixed;
+    top: 10pt;
+    left: 10pt;
+    height: 20pt;
+    width: 20pt;
+    background-image: url("../bmp/three-dots.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#menuContext {
+    display: none;
+    position: absolute;
+    top: 25pt;
+    left: 0;
+    width: fit-content;
+}
+
+.button {
+    display: block;
+    text-align: left;
+    color: darkblue;
+    font-weight: bold;
+    font-size: 5vw;
+    width: 100%;
+    opacity: 70%;
+}
+
+.button_press {
+    background-color: darkgray;
+    cursor: not-allowed;
+}
+
+.button_unpress {
+    cursor: pointer;
+}

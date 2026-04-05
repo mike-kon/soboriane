@@ -1,0 +1,40 @@
+#menu {
+    position: relative;
+    margin: 0 auto 5pt auto;
+    padding: 2pt 10pt 2pt 10pt;
+    background-color: azure;
+    border: 2px inset black;
+    outline: 2px outset black;
+    outline-offset: 2px;
+    border-start-start-radius: 1pt;
+    border-start-end-radius: 1pt;
+    border-end-start-radius: 1pt;
+    border-end-end-radius: 1pt;
+    max-width: 545pt;
+}
+
+#menuContext {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.button {
+    margin: 2pt auto;
+    padding: 5pt 10pt 5pt 10pt;
+    width: calc(100% - 5pt);
+    border: 2px solid blue;
+    border-start-start-radius: 5pt;
+    border-start-end-radius: 5pt;
+    border-end-start-radius: 5pt;
+    border-end-end-radius: 5pt;
+    text-align: center;
+}
+
+.button_press {
+    background-color: darkgray;
+    cursor: not-allowed;
+}
+
+.button_unpress {
+    cursor: pointer;
+}

@@ -3,9 +3,17 @@
  *************************************/
 
 .divMessage {
-    margin: 10pt auto;
+    margin: 0 auto;
     display: block;
-    height: calc(100dvh - 60pt);
+    @media (min-width:1200px) {
+        height: calc(100dvh - 15pt);
+    }
+    @media (min-width:500px) and (max-width:1199px) {
+        height: calc(100dvh - 60pt);
+    }
+    @media (max-width:499px) {
+        height: calc(100dvh - 30pt);
+    }
 
     background-color: aquamarine;
     max-width: 550pt;
