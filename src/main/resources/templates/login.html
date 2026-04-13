@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/login" method="post">
+    <!-- todo добавить сообщение о неправильном логине -->
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+    User<input name="user" id="user" type="text"/><br>
+    Password<input name="password" type="password"/><br>
+    <input type="submit">
+</form>
+<!-- todo добавить регистрацию -->
+</body>
+</html>

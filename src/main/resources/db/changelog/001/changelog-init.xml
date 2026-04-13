@@ -8,7 +8,7 @@
 
     <changeSet id="1774282777624-1" author="koma"  failOnError="true">
         <createTable remarks="сообщение" tableName="message">
-            <column name="id" type="char(36)">
+            <column name="id" type="uuid">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="message_pk"/>
             </column>
             <column defaultValueComputed="now()" name="created" type="timestamp">
@@ -27,7 +27,7 @@
             </column>
         </createTable>
         <createTable remarks="список для молитвы" tableName="prayer_list">
-            <column name="id" type="char(36)">
+            <column name="id" type="uuid">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="prayer_list_pk"/>
             </column>
             <column name="name" type="VARCHAR">
@@ -46,11 +46,11 @@
                     remarks="Статус подана,принята,  дискуссиона, отклонена, закончена" type="VARCHAR">
                 <constraints nullable="false" />
             </column>
-            <column name="message_ref" type="char(36)">
+            <column name="message_ref" type="uuid">
             </column>
         </createTable>
         <createTable tableName="shadow">
-            <column name="id" type="char(36)">
+            <column name="id" type="uuid">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="shadow_pk"/>
             </column>
             <column name="user" type="VARCHAR">
@@ -69,9 +69,9 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <createTable tableName="user">
+        <createTable tableName="app_user">
             <column name="nick" remarks="Имя полбьзователя в системе" type="VARCHAR(32)">
-                <constraints nullable="false" primaryKey="true" primaryKeyName="user_pk"/>
+                <constraints nullable="false" primaryKey="true" primaryKeyName="app_user_pk"/>
             </column>
             <column name="name" remarks="Имя пользователя" type="VARCHAR">
                 <constraints nullable="false"/>
@@ -84,16 +84,12 @@
             </column>
             <column name="angel_days"
                     remarks="День Ангела (по Григорианскому календарю).&#13;&#10;День указывается в нулевом году."
-                    type="date">
-                <constraints nullable="false"/>
-            </column>
+                    type="date"/>
             <column name="number" remarks="Номер в двадцатке" type="INT"/>
             <column defaultValueBoolean="false" name="is_admin" remarks="Является администратором" type="BOOLEAN">
                 <constraints nullable="false"/>
             </column>
-            <column name="day_begin" remarks="дата начала чтения" type="date">
-                <constraints nullable="false"/>
-            </column>
+            <column name="day_begin" remarks="дата начала чтения" type="date"/>
             <column name="day_end" remarks="дата окончания чтения" type="date"/>
         </createTable>
         <createIndex indexName="prayer_list_name_idx" tableName="prayer_list">
@@ -120,16 +116,16 @@
             <column name="created"/>
             <column name="expires"/>
         </createIndex>
-        <createIndex indexName="user_day_begin_idx" tableName="user">
+        <createIndex indexName="user_day_begin_idx" tableName="app_user">
             <column name="day_begin"/>
             <column name="day_end"/>
         </createIndex>
-        <createIndex indexName="user_name_idx" tableName="user" unique="true">
+        <createIndex indexName="user_name_idx" tableName="app_user" unique="true">
             <column name="name"/>
             <column name="family"/>
             <column name="birthday"/>
         </createIndex>
-        <createIndex indexName="user_number_idx" tableName="user">
+        <createIndex indexName="user_number_idx" tableName="app_user">
             <column name="number"/>
         </createIndex>
         <addForeignKeyConstraint baseColumnNames="message_ref" baseTableName="prayer_list"
@@ -137,7 +133,7 @@
                                  referencedTableName="message"/>
         <addForeignKeyConstraint baseColumnNames="owner" baseTableName="prayer_list"
                                  constraintName="prayer_list_user_fk" onDelete="NO ACTION" referencedColumnNames="nick"
-                                 referencedTableName="user"/>
+                                 referencedTableName="app_user"/>
         <createIndex indexName="prayer_list_owner_idx" tableName="prayer_list">
             <column name="owner"/>
         </createIndex>
@@ -154,7 +150,7 @@
                 CHECK (status in ('CREATED','ACCEPTED','DISCUSSION','DROP','DONE'));
             ALTER TABLE soboriane.prayer_list ADD CONSTRAINT prayer_list_check_what
                 CHECK (what in ('HEALTH','REPOSE'));
-            ALTER TABLE soboriane."user" ADD CONSTRAINT user_check
+            ALTER TABLE soboriane.app_user ADD CONSTRAINT user_check
                 CHECK (((number &gt;= 1) AND (number &lt;= 20)));
         </sql>
 

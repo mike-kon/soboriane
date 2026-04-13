@@ -1,9 +1,13 @@
 server:
-  port: 9300
+  port: 9001
 spring:
   application:
     name: soboriane
-    version: 1.0.0
+    version: 0.0.1
+  mvc:
+    view:
+      prefix:
+      suffix: .html
   datasource:
     url: ${DB_URL}
     username: ${DB_USER}
@@ -18,4 +22,6 @@ spring:
 logging:
   level:
     root: info
+    web: debug
+    com.mikesoft.soboriane: trace
 
