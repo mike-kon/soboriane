@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 
   @GetMapping("/")
+  @Deprecated
   public String index(HttpServletRequest request, @AuthenticationPrincipal UserLoginDto user, Model model) {
     model.addAttribute("sessionId", request.getSession().getId());
     model.addAttribute("user", user.getNick());
-    return "index";
+    return "index-old";
   }
 
   @GetMapping("login")

@@ -2,17 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Соборяне</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/menu-left.css" media="(min-width:1200px)">
+    <link rel="stylesheet" href="css/menu-top.css" media="(min-width:500px) and (max-width:1199px)">
+    <link rel="stylesheet" href="css/menu-button.css" media="(max-width:499px)">
+    <link rel="stylesheet" href="css/messages.css">
+    <script src="js/jquery-4.0.0.min.js"></script>
+    <script src="js/sockjs.min.js"></script>
+    <script src="js/stomp.min.js"></script>
+    <script src="js/stomp-processor.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
-<div>
-    <h1>Проект СОБОРЯНЕ</h1><br>
-    Временный дизайн
-    <div>
-        Id of session <span th:text="${sessionId}"></span> <br>
-        User: <span th:text="${user}"></span> <br>
-        Password: ***************************** (Ща, выведу)<br>
+<div id="main">
+    <div id="menu">
+        <div id="menuContext"></div>
     </div>
+    <div id="content"></div>
 </div>
 </body>
 </html>

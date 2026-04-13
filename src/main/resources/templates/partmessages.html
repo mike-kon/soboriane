@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div th:id="${idMessage}" class="messageBox">
+    <div th:if="${isOpponent}" class="opponentName">
+    </div>
+    <div th:class="${isOpponent} ? 'messageOpponent' : 'messageMy'">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+</body>
+</html>
