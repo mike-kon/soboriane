@@ -2,16 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Регистрация</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-<form action="/login" method="post">
-    <!-- todo добавить сообщение о неправильном логине -->
-    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-    User<input name="user" id="user" type="text"/><br>
-    Password<input name="password" type="password"/><br>
-    <input type="submit">
-</form>
+<div>
+    <div class="context">
+        <div class="header"><h1>Авторизация</h1></div>
+        <form action="/login" method="post">
+            <!-- todo добавить сообщение о неправильном логине -->
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            <table>
+                <tr>
+                    <td>Идентификатор</td>
+                    <td><input name="user" id="user" type="text"/></td>
+                </tr>
+                <tr>
+                    <td>Пароль</td>
+                    <td><input name="password" type="password"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"> <input type="submit" value="Ок" ></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
 <!-- todo добавить регистрацию -->
 </body>
 </html>
