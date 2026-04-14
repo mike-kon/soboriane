@@ -1,7 +1,9 @@
 package com.mikesoft.soboriane.controllers;
 
-import com.mikesoft.soboriane.dto.db.UserLoginDto;
+import com.mikesoft.soboriane.dto.UserLoginDto;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,13 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
+@Slf4j
 public class MainController {
 
   @GetMapping("/")
   @Deprecated
-  public String index(HttpServletRequest request, @AuthenticationPrincipal UserLoginDto user, Model model) {
-    model.addAttribute("sessionId", request.getSession().getId());
-    model.addAttribute("user", user.getNick());
+  public String index(@AuthenticationPrincipal UserLoginDto userLogin, Model model) {
     return "index";
   }
 

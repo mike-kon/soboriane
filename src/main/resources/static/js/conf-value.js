@@ -1,14 +1,16 @@
 const path = '/api/init/clientProperties'
 
-let socketName; // = '/ws-stomp';
-let topic; // = '/topic/updates';
-let maxRetryConnect; // = 5;
-let timeOutValue; // = 5000;
+let maxRetryConnect;
+let timeOutValue;
+let endpoint;
+let userPrefix;
+let topic;
 
 async function initVariable() {
     console.log("conf-value init");
     await $.post(path, {}, function (prop) {
-        socketName = prop.socketName;
+        endpoint = prop.endpoint;
+        userPrefix = prop.userPrefix;
         topic = prop.topic;
         maxRetryConnect = prop.maxRetryConnect;
         timeOutValue = prop.timeOutValue;

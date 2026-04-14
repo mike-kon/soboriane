@@ -1,7 +1,8 @@
-package com.mikesoft.soboriane.dto.db;
+package com.mikesoft.soboriane.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.jspecify.annotations.NullMarked;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,21 +11,21 @@ import java.util.List;
 
 @Getter
 @Setter
-public class UserLoginDto implements UserDetails {
-  private String nick;
-  private String name;
-  private String family;
+public class UserLoginDto extends UserDto implements UserDetails {
+
   private String password;
   private Boolean enabled;
 
   @Override
+  @NullMarked
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return List.of();
   }
 
   @Override
+  @NullMarked
   public String getUsername() {
-    return nick;
+    return getNick();
   }
 
   @Override

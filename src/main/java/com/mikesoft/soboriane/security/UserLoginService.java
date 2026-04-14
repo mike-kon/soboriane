@@ -1,6 +1,6 @@
 package com.mikesoft.soboriane.security;
 
-import com.mikesoft.soboriane.dao.UserLoginDao;
+import com.mikesoft.soboriane.dao.UserDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserLoginService implements UserDetailsService {
 
-  private final UserLoginDao userLoginDao;
+  private final UserDao userDao;
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    return userLoginDao.getUser(username);
+    return userDao.getUser(username);
   }
 }

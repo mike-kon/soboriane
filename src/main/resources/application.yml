@@ -22,14 +22,13 @@ spring:
     change-log: db/changelog/db.changelog-master.xml
 
 app:
-  web-socket-configuration:
-    enable-simple-broker: "/topic"
-    application-destination-prefixes: "/app"
-    updates: "/topic/message"
+  client-configuration:
     endpoint: "/ws-work"
-  client:
-    socket-name: "${app.web-socket-configuration.endpoint}"
-    topic: "${app.web-socket-configuration.updates}"
+    brokerPrefix:
+      "/topic"
+    applicationPrefix: "/app"
+    userPrefix: "/user"
+    topic: "/topic/message"
     max-retry-connect: 5
     time-out-value: 5000
 

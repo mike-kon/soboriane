@@ -1,10 +1,12 @@
 package com.mikesoft.soboriane.controllers;
 
-import com.mikesoft.soboriane.dto.db.UserLoginDto;
-import com.mikesoft.soboriane.logic.MenuView;
-import com.mikesoft.soboriane.logic.MessageService;
+import com.mikesoft.soboriane.dto.UserLoginDto;
+import com.mikesoft.soboriane.services.views.MenuView;
+import com.mikesoft.soboriane.services.MessageService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -19,23 +21,21 @@ import java.util.Map;
 @Controller
 @RequestMapping("/api")
 @RequiredArgsConstructor
+@Slf4j
 public class LogicController {
 
   private final MessageService messageService;
   private final Map<String, MenuView> menuCommands;
 
   @PostMapping("menu")
-  public String menu(@RequestParam String command, HttpServletRequest request,
-                     @AuthenticationPrincipal UserLoginDto user, Model model) {
+  public String menu(@RequestParam String command, @AuthenticationPrincipal UserLoginDto user, Model model) {
     MenuView view = menuCommands.get(command);
-    String sessionId = request.getSession().getId();
-    String nick = user.getNick();
-    return view != null ? view.loadView(sessionId, nick, model) : "uc";
+    return view != null ? view.loadView(user, model) : "uc";
   }
 
   @PostMapping("message")
   @ResponseStatus(HttpStatus.OK)
   public void sendMessage(@RequestParam String message, @AuthenticationPrincipal UserLoginDto user) {
-    messageService.messageUpdate(user.getNick(), message);
+    messageService.messageUpdate(user, message);
   }
 }

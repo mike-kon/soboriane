@@ -12,17 +12,19 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @RequiredArgsConstructor
 public class WebSocketStompConfig implements WebSocketMessageBrokerConfigurer {
 
-  private final AppProperties appProperties;
+  private final ClientProperties clientProperties;
 
   @Override
   public void configureMessageBroker(MessageBrokerRegistry registry) {
-    registry.enableSimpleBroker(appProperties.webSocketConfiguration.getEnableSimpleBroker());
-    registry.setApplicationDestinationPrefixes(appProperties.webSocketConfiguration.getApplicationDestinationPrefixes());
+    registry.enableSimpleBroker(clientProperties.getBrokerPrefix());
+    registry.setApplicationDestinationPrefixes(clientProperties.getApplicationPrefix());
+    registry.setUserDestinationPrefix(clientProperties.getUserPrefix());
   }
 
   @Override
   public void registerStompEndpoints(StompEndpointRegistry registry) {
-    registry.addEndpoint(appProperties.getWebSocketConfiguration().getEndpoint()).withSockJS();
+    registry.addEndpoint(clientProperties.getEndpoint())
+        .withSockJS();
   }
 
 }

@@ -3,8 +3,7 @@ let stompClient = null;
 let retryConnect = 0;
 
 function stompConnect() {
-    console.log(socketName);
-    const socket = new SockJS(socketName);
+    const socket = new SockJS(endpoint);
     stompClient = Stomp.over(socket);
 
     // отключаем отладку
@@ -16,7 +15,8 @@ function stompConnect() {
         retryConnect = 0;
 
         // Подписываемся на топик обновлений
-        stompClient.subscribe(topic, function (message) {
+        const topicSubscribe = userPrefix + topic;
+        stompClient.subscribe(topicSubscribe, function (message) {
             console.log('Received update from ' + message.headers["destination"] + ",  id:" + message.headers["message-id"]);
             $('#messageCanvas').html(message.body);
         });
