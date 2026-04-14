@@ -17,7 +17,7 @@ public class MainController {
   public String index(HttpServletRequest request, @AuthenticationPrincipal UserLoginDto user, Model model) {
     model.addAttribute("sessionId", request.getSession().getId());
     model.addAttribute("user", user.getNick());
-    return "index-old";
+    return "index";
   }
 
   @GetMapping("login")

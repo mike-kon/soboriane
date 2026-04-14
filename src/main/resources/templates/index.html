@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title>Соборяне</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/menu-left.css" media="(min-width:1200px)">
@@ -12,13 +14,19 @@
     <script src="js/jquery-4.0.0.min.js"></script>
     <script src="js/sockjs.min.js"></script>
     <script src="js/stomp.min.js"></script>
-    <script src="js/stomp-processor.js"></script>
+    <script src="js/conf-value.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/stomp-processor.js"></script>
 </head>
 <body>
 <div id="main">
     <div id="menu">
-        <div id="menuContext"></div>
+        <div id="menuContext">
+            <button id="btnMessage" class="button button_press" onclick="clickMainButton(this)">Сообщения</button>
+            <button id="btnText" class="button button_unpress" onclick="clickMainButton(this)">Псалтирь</button>
+            <button id="btnAdmin" class="button button_unpress" onclick="clickMainButton(this)">Администрирование
+            </button>
+        </div>
     </div>
     <div id="content"></div>
 </div>

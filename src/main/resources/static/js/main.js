@@ -15,11 +15,18 @@ function clickMainButton(div) {
 }
 
 function loadData(tag) {
-    console.log("Will be loaded data from server " + tag + ". Under construction");
+    console.log("Will be loaded data from server " + tag);
+    $.post('api/menu', {"command": tag}, function (html) {
+        $('#content').html(html);
+    });
 }
 
 function sendMessage() {
-    console.log("Under construction");
+    const msg = $('#inputMessageText');
+    let message = $(msg).val();
+    $(msg).val('');
+    console.log(message);
+    $.post('api/message', {"message":message});
 }
 
 function updateTextByWidth() {
@@ -87,23 +94,6 @@ function canvasClear() {
     menuUnClick();
 }
 
-// @Depricated
-/*
-function getTextWidthFromElement($element, text) {
-    // Получаем стили элемента
-    const fontSize = $element.css('fontSize');
-    const fontFamily = $element.css('fontFamily');
-    const font = `${fontSize} ${fontFamily}`;
-
-    // Измеряем текст
-    const canvas = $('<canvas></canvas>')[0];
-    const context = canvas.getContext('2d');
-    context.font = font;
-
-    return context.measureText(text || $element.text()).width;
-}
-*/
-
 function init() {
     $('#main').on('click', function () {
         canvasClear();
@@ -114,6 +104,19 @@ function init() {
     updateTextByWidth();
     $('#messageCanvas').scrollTop(1000000);
 }
+
+$(function () {
+    // Берем токен и имя заголовка из meta-тегов
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+
+    // Глобально настраиваем все AJAX-запросы
+    $(document).ajaxSend(function (e, xhr, options) {
+        xhr.setRequestHeader(header, token);
+    });
+    loadData("btnMessage");
+});
+
 
 window.addEventListener('load', init);
 window.addEventListener('resize', init);

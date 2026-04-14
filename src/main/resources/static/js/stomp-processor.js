@@ -2,12 +2,14 @@
 let stompClient = null;
 let retryConnect = 0;
 
-function connect() {
+function stompConnect() {
+    console.log(socketName);
     const socket = new SockJS(socketName);
     stompClient = Stomp.over(socket);
 
     // отключаем отладку
-    stompClient.debug = () => {};
+    stompClient.debug = () => {
+    };
 
     stompClient.connect({}, function (frame) {
         console.log('Connected: ' + frame);
@@ -16,21 +18,21 @@ function connect() {
         // Подписываемся на топик обновлений
         stompClient.subscribe(topic, function (message) {
             console.log('Received update from ' + message.headers["destination"] + ",  id:" + message.headers["message-id"]);
-            $('#load').html(message.body);
+            $('#messageCanvas').html(message.body);
         });
 
     }, function (error) {
         console.error('STOMP error (' + retryConnect + '):', error);
-        if  (retryConnect++ < maxRetryConnect) {
-            setTimeout(connect, timeOutValue);
+        if (retryConnect++ < maxRetryConnect) {
+            setTimeout(stompConnect, timeOutValue);
         } else {
             alert("Соединение потеряно");
-            disconnect();
+            stompDisconnect();
         }
     });
 }
 
-function disconnect() {
+function stompDisconnect() {
     if (stompClient !== null) {
         stompClient.disconnect();
     }
@@ -42,11 +44,12 @@ $(document).ready(function () {
     initVariable().then(() => {
         console.log("stomp processor init");
         retryConnect = 0;
-        connect();
-
+        stompConnect();
         // Отключаемся при закрытии страницы
         window.onbeforeunload = function () {
-            disconnect();
+            console.log("disconnect");
+            stompDisconnect();
         };
     });
 });
+

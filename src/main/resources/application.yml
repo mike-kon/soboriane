@@ -1,5 +1,6 @@
 server:
   port: 9001
+
 spring:
   application:
     name: soboriane
@@ -19,9 +20,23 @@ spring:
     default-schema: soboriane
     liquibase-schema: liquibase
     change-log: db/changelog/db.changelog-master.xml
+
+app:
+  web-socket-configuration:
+    enable-simple-broker: "/topic"
+    application-destination-prefixes: "/app"
+    updates: "/topic/message"
+    endpoint: "/ws-work"
+  client:
+    socket-name: "${app.web-socket-configuration.endpoint}"
+    topic: "${app.web-socket-configuration.updates}"
+    max-retry-connect: 5
+    time-out-value: 5000
+
 logging:
   level:
     root: info
     web: trace
     com.mikesoft.soboriane: trace
+
 
