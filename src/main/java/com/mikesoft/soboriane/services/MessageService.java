@@ -1,9 +1,20 @@
 package com.mikesoft.soboriane.services;
 
+import static com.mikesoft.soboriane.enums.MessageType.MESSAGE;
+import static com.mikesoft.soboriane.util.UuidV7.generate;
+
 import com.mikesoft.soboriane.config.ClientProperties;
+import com.mikesoft.soboriane.dao.SessionAndUser;
 import com.mikesoft.soboriane.dto.MessageDto;
 import com.mikesoft.soboriane.dto.UserDto;
-import com.mikesoft.soboriane.util.UuidV7;
+import jakarta.annotation.PostConstruct;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
+import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -12,14 +23,9 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 
-import java.time.LocalDateTime;
-import java.util.Set;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
-
-import static com.mikesoft.soboriane.enums.MessageType.MESSAGE;
-
+/**
+ * Сервис сообщений.
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -28,48 +34,76 @@ public class MessageService {
   private final ClientProperties clientProperties;
   private final SimpMessagingTemplate messagingTemplate;
   private final SpringTemplateEngine templateEngine;
+  private final MessageSession messageSessions;
 
-  private final Set<String> connectedUsers = ConcurrentHashMap.newKeySet();
   private final Set<MessageDto> cacheMessages = ConcurrentHashMap.newKeySet();
+  private static final DateTimeFormatter FORMAT_TIME_MARK =
+      DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
 
+  /**
+   * Инициализация сервиса.
+   */
+  @PostConstruct
+  public void init() {
+    MessageDto startMessage = new MessageDto();
+    startMessage.setMessage("Start");
+    UserDto systemUser = new UserDto();
+    systemUser.setName("System");
+    systemUser.setFamily("");
+    systemUser.setNick("system");
+    systemUser.setIsAdmin(false);
+    startMessage.setOwner(systemUser);
+    startMessage.setId(generate());
+    startMessage.setType(MESSAGE);
+    startMessage.setCreated(LocalDateTime.now());
+    cacheMessages.add(startMessage);
+  }
+
+  /**
+   * Обработка входящего сообщения.
+   *
+   * @param user - отправитель.
+   * @param message - сообщение.
+   */
   @Async
-  public void messageUpdate(UserDto user, String message) {
+  public void messageSend(UserDto user, String message) {
     String nick = user.getNick();
     log.debug("User:{}, message:{}", nick, message);
     // создать сообщение.
     MessageDto messageDto = messageGenerate(user, message);
     cacheMessages.add(messageDto);
-    // todo записать в БД.
-    // todo инициировать STOMP заполнение.
-    connectedUsers.forEach(this::sendHtmlContentToUser);
+    // TODO: записать в БД.
+    messageUpdate();
   }
 
-  public void userConnect(String sessionId) {
-    connectedUsers.add(sessionId);
-  }
-
-  public void useerDisconnect(String sessionId) {
-    connectedUsers.remove(sessionId);
+  /**
+   * Команда на обновление всех клиентов.
+   */
+  @Async
+  public void messageUpdate() {
+    messageSessions.getConnected().forEach(this::sendHtmlToSession);
   }
 
   /**
    * Генерирует объект MessageDto из сообщения.
-   *
    * Пока реализовано просто сообщение.
-   * todo Реализовать все типы сообщений
-   * @param user пользователь.
+   * TODO: Реализовать все типы сообщений
+   *
+   * @param user    пользователь.
    * @param message исходное сообщение.
    * @return MessageDto
    */
   private MessageDto messageGenerate(UserDto user, String message) {
-    return new MessageDto(UuidV7.generate(), LocalDateTime.now(), user, MESSAGE, message, null);
+    return new MessageDto(generate(), LocalDateTime.now(), user, MESSAGE, message, null);
   }
 
-  private void sendHtmlContentToUser(String user) {
+  private void sendHtmlToSession(SessionAndUser session) {
     String htmlMessages = cacheMessages.stream()
-        .map(msg -> generateHtml(user, msg))
+        .sorted(Comparator.comparing(MessageDto::getCreated))
+        .map(msg -> generateHtml(session.getNick(), msg))
         .collect(Collectors.joining());
-    messagingTemplate.convertAndSendToUser(user, clientProperties.getTopic(), htmlMessages);
+    messagingTemplate.convertAndSendToUser(session.getNick(), clientProperties.getTopic(),
+        htmlMessages);
   }
 
   private String generateHtml(String user, MessageDto message) {
@@ -78,10 +112,10 @@ public class MessageService {
     context.setVariable("idMessage", idMessage);
     Boolean isOpponent = !user.equals(message.getOwner().getNick());
     context.setVariable("isOpponent", isOpponent);
-    String opponentName = message.getOwner().getName() + " " + message.getOwner().getFamily();
-    context.setVariable("opponentName",opponentName);
-    String messageText = message.getMessage();
-    context.setVariable("message", messageText);
+    String opponentName = message.getOwner().getName() + " " + message.getOwner().getFamily() + " ";
+    context.setVariable("opponentName", opponentName);
+    context.setVariable("timeMark", message.getCreated().format(FORMAT_TIME_MARK));
+    context.setVariable("message", message.getMessage());
     return templateEngine.process("partmessages", context);
   }
 }

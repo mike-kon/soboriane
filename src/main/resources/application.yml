@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: ${APP_SERVER:9001}
 
 spring:
   application:
@@ -29,8 +29,8 @@ app:
     applicationPrefix: "/app"
     userPrefix: "/user"
     topic: "/topic/message"
-    max-retry-connect: 5
-    time-out-value: 5000
+    max-retry-connect: 3
+    time-out-value: 2000
 
 logging:
   level:

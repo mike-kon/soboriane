@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Контроллер инициализации настроечных свойств в JS.
+ */
 @RestController
 @RequestMapping("/api/init")
 @RequiredArgsConstructor

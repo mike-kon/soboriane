@@ -8,11 +8,15 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Component;
 
+/**
+ * Взаимодействие с БД в части работы с пользователем.
+ */
 @Component
 @RequiredArgsConstructor
 public class UserDao {
 
-  private static final String USER_SHADOW = """
+  private static final String USER_SHADOW =
+      """
       select u.nick, u."name", u."family", u.birthday, u.angel_days, u."number", u.is_admin,
              u.day_begin, u.day_end, s."password", s.enabled  from app_user u
                  inner join shadow s on u.nick  = s."user"
@@ -21,10 +25,17 @@ public class UserDao {
 
   private final NamedParameterJdbcTemplate jdbcTemplate;
 
+  /**
+   * Информация о пользователе и его параметрах авторизации..
+   *
+   * @param user пользователь.
+   * @return структура UserLoginDto.
+   */
   public UserLoginDto getUser(String user) {
-    // todo Добавить обработку смены пароля (вот только где)
+    // TODO: Добавить обработку смены пароля (вот только где)
     SqlParameterSource params = new MapSqlParameterSource()
         .addValue("user", user);
-    return jdbcTemplate.queryForObject(USER_SHADOW, params, new DataClassRowMapper<>(UserLoginDto.class));
+    return jdbcTemplate.queryForObject(USER_SHADOW, params,
+        new DataClassRowMapper<>(UserLoginDto.class));
   }
 }

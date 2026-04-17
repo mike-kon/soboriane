@@ -20,7 +20,7 @@ function stompConnect() {
             console.log('Received update from ' + message.headers["destination"] + ",  id:" + message.headers["message-id"]);
             $('#messageCanvas').html(message.body);
         });
-
+        stompPostConnect();
     }, function (error) {
         console.error('STOMP error (' + retryConnect + '):', error);
         if (retryConnect++ < maxRetryConnect) {
@@ -30,6 +30,10 @@ function stompConnect() {
             stompDisconnect();
         }
     });
+}
+
+function stompPostConnect() {
+    $.post("/api/messageinit");
 }
 
 function stompDisconnect() {

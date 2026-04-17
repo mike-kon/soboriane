@@ -4,10 +4,15 @@
 <!--/*@thymesVar id="idMessage" type="UUID"*/-->
 <!--/*@thymesVar id="isOpponent" type="Boolean"*/-->
 <!--/*@thymesVar id="opponentName" type="String"*/-->
-<!--/*@thymesVar id="messagemessage" type="String"*/-->
+<!--/*@thymesVar id="timeMark" type="Boolean"*/-->
+<!--/*@thymesVar id="message" type="String"*/-->
+
 <div th:id="${idMessage}" class="messageBox">
     <div th:if="${isOpponent}" class="opponentName">
         <span th:text="${opponentName}"></span>
+    </div>
+    <div th:class="${isOpponent} ? 'timemark_left' : 'timemark_right'">
+        <span th:text="${timeMark}"></span>
     </div>
     <div th:class="${isOpponent} ? 'messageOpponent' : 'messageMy'">
         <span th:text="${message}"></span>

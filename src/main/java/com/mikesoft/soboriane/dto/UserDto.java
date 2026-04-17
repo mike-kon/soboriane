@@ -1,11 +1,12 @@
 package com.mikesoft.soboriane.dto;
 
+import java.time.LocalDate;
 import lombok.Getter;
 import lombok.Setter;
-import org.jspecify.annotations.NonNull;
 
-import java.time.LocalDate;
-
+/**
+ * Пользователь.
+ */
 @Getter
 @Setter
 public class UserDto {
@@ -13,9 +14,9 @@ public class UserDto {
   private String name;
   private String family;
   private LocalDate birthday;
-  private LocalDate angel_days;
+  private LocalDate angelDays;
   private Integer number;
-  private Boolean is_admin;
-  private LocalDate day_begin;
-  private LocalDate day_end;
+  private Boolean isAdmin;
+  private LocalDate dayBegin;
+  private LocalDate dayEnd;
 }

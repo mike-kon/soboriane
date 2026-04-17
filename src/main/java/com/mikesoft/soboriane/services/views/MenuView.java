@@ -4,8 +4,18 @@ import com.mikesoft.soboriane.dto.UserDto;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 
+/**
+ * Интерфейс вьюера.
+ */
 public interface MenuView {
 
+  /**
+   * Загрузка вьюера.
+   *
+   * @param nick прользователь.
+   * @param model  модель для формирования thymeleaf модели.
+   * @return thymeleaf модель.
+   */
   String loadView(UserDto nick, Model model);
 
 }

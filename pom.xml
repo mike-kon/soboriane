@@ -116,6 +116,30 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <!-- Путь к файлу правил (используйте Google Style) -->
+                    <configLocation>google_checks.xml</configLocation>
+                    <!-- Останавливать сборку при нарушении (ЭТО КЛЮЧЕВОЙ ПАРАМЕТР!) -->
+                    <failOnViolation>true</failOnViolation>
+                    <violationSeverity>warning</violationSeverity>
+                    <!-- Выводить нарушения в консоль -->
+                    <consoleOutput>true</consoleOutput>
+                    <logViolationsToConsole>true</logViolationsToConsole>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>heckstyle-validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <annotationProcessorPaths>
@@ -144,5 +168,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

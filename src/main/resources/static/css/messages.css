@@ -59,6 +59,11 @@
     float: left;
 }
 
+.timemark_left {
+    font-size: x-small;
+    padding-left: 1vw;
+}
+
 .messageMy {
     margin: 0 1vw 0 4vw;
     padding: 0 1vw 0 1vw;
@@ -68,9 +73,16 @@
     border-end-start-radius: 10pt;
     border-end-end-radius: 10pt;
     background-color: aquamarine;
-    display: inline-block;
+    display: block;
     float: right;
 }
+
+.timemark_right {
+    font-size: x-small;
+    text-align: right;
+    padding-right: 1vw;
+}
+
 
 .inputMessage {
     display: block;

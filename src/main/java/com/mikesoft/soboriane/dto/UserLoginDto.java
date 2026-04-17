@@ -1,14 +1,16 @@
 package com.mikesoft.soboriane.dto;
 
+import java.util.Collection;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import org.jspecify.annotations.NullMarked;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
-import java.util.List;
-
+/**
+ * Данные авторизации пользователя.
+ */
 @Getter
 @Setter
 public class UserLoginDto extends UserDto implements UserDetails {
