@@ -1,7 +1,6 @@
 package com.mikesoft.soboriane.services.views;
 
-import com.mikesoft.soboriane.dto.UserDto;
-import jakarta.servlet.http.HttpSession;
+import com.mikesoft.soboriane.dto.db.UserDto;
 import org.springframework.ui.Model;
 
 /**

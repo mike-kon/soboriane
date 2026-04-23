@@ -1,6 +1,6 @@
 package com.mikesoft.soboriane.controllers;
 
-import com.mikesoft.soboriane.dto.UserLoginDto;
+import com.mikesoft.soboriane.dto.web.UserLoginDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -36,6 +36,15 @@ public class MainController {
   @GetMapping("login")
   public String login() {
     return "login";
+  }
+
+  /**
+   * Авторизация.
+   * @return - thymeleaf модель.thymeleaf модель.
+   */
+  @GetMapping("register")
+  public String register() {
+    return "register";
   }
 
 }

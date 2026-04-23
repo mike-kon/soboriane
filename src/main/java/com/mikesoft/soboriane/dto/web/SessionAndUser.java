@@ -1,4 +1,4 @@
-package com.mikesoft.soboriane.dao;
+package com.mikesoft.soboriane.dto.web;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

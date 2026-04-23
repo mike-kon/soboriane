@@ -1,5 +1,6 @@
-package com.mikesoft.soboriane.dto;
+package com.mikesoft.soboriane.dto.web;
 
+import com.mikesoft.soboriane.dto.db.UserDto;
 import java.util.Collection;
 import java.util.List;
 import lombok.Getter;

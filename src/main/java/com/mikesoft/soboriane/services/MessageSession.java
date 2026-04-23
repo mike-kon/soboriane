@@ -2,7 +2,7 @@ package com.mikesoft.soboriane.services;
 
 import static com.mikesoft.soboriane.exceptions.ExceptionCode.E003;
 
-import com.mikesoft.soboriane.dao.SessionAndUser;
+import com.mikesoft.soboriane.dto.web.SessionAndUser;
 import com.mikesoft.soboriane.exceptions.MessageException;
 import java.util.Optional;
 import java.util.Set;

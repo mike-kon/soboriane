@@ -1,6 +1,6 @@
 package com.mikesoft.soboriane.dao;
 
-import com.mikesoft.soboriane.dto.UserLoginDto;
+import com.mikesoft.soboriane.dto.web.UserLoginDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.DataClassRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;

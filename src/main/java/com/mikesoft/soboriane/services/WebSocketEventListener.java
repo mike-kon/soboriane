@@ -1,6 +1,6 @@
 package com.mikesoft.soboriane.services;
 
-import com.mikesoft.soboriane.dao.SessionAndUser;
+import com.mikesoft.soboriane.dto.web.SessionAndUser;
 import java.security.Principal;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

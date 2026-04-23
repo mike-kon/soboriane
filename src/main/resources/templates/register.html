@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+<div class="context">
+    <div class="header"><h1>Регистрация</h1></div>
+    <form class="loginForm" action="/api/createRegister" method="post">
+        <div class="registerItem">
+            <div class="registerInfo">
+                Придумайте себе уникальное имя, которое будет использоваться при входе.
+            </div>
+            <div class="registerLabel">Логин:</div>
+            <div class="registerField">
+                <input name="nick" id="nick" type="text" autofocus>
+            </div>
+        </div>
+        <div class="registerItem">
+            <div class="registerInfo">
+                Введите, пожалуйста Ваше имя.
+            </div>
+            <div class="registerLabel">Имя:</div>
+            <div class="registerField">
+                <input name="name" id="name" type="text"/>
+            </div>
+        </div>
+        <div class="registerItem">
+            <div class="registerInfo">
+                Введите, пожалуйста Вашу фамилию.
+            </div>
+            <div class="registerLabel">Фамилия:</div>
+            <div class="registerField">
+                <input name="family" id="family" type="text"/>
+            </div>
+        </div>
+        <div class="registerItem">
+            <div class="registerInfo">
+                Укажите Ваш телефон. Если Вы член 20-ки, то телефон обязателен.
+            </div>
+            <div class="registerLabel">Телефон:</div>
+            <div class="registerField">
+                <input name="phone" id="phone" type="text"/>
+            </div>
+        </div>
+        <div class="registerItem">
+            <div class="registerInfo">
+                Укажите Ваше Email. Он будет использоваться для задания пароля.
+            </div>
+            <div class="registerLabel">Email:</div>
+            <div class="registerField">
+                <input name="email" id="email" type="text"/>
+            </div>
+        </div>
+        <div class="registerItem">
+            <div class="registerInfo">
+                Укажите Ваш день рождения.
+            </div>
+            <div class="registerLabel">День рождения:</div>
+            <div class="registerField">
+                <input name="birthday" id="birthday" type="date"/>
+            </div>
+        </div>
+        <div class="registerItem">
+            <div class="registerInfo">
+                Укажите день Вашего ангела. Важен день и месяц. Год может быть любой.
+            </div>
+            <div class="registerLabel">День Ангела:</div>
+            <div class="registerField">
+                <input name="angelDays" id="angelDays" type="date"/>
+            </div>
+        </div>
+        <div class="registerItem">
+            <div class="registerInfo">
+                Укадите Ваш номер при чтении псалтири.
+            </div>
+            <div class="registerLabel">Номер в Псалтири:</div>
+            <div class="registerField">
+                <input name="" id="" type="number" min="1" max="20"/>
+            </div>
+        </div>
+        <input type="submit" class="loginButton" value="регистрация">
+    </form>
+</div>
+</body>
+</html>

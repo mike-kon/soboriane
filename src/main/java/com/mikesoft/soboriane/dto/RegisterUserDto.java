@@ -9,14 +9,13 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class UserDto {
+public class RegisterUserDto {
   private String nick;
   private String name;
   private String family;
+  private String phone;
+  private String email;
   private LocalDate birthday;
   private LocalDate angelDays;
   private Integer number;
-  private Boolean isAdmin;
-  private LocalDate dayBegin;
-  private LocalDate dayEnd;
 }

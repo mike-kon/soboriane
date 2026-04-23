@@ -1,4 +1,4 @@
-package com.mikesoft.soboriane.dto;
+package com.mikesoft.soboriane.dto.db;
 
 import com.mikesoft.soboriane.enums.MessageType;
 import java.time.LocalDateTime;

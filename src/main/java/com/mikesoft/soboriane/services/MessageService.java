@@ -4,9 +4,9 @@ import static com.mikesoft.soboriane.enums.MessageType.MESSAGE;
 import static com.mikesoft.soboriane.util.UuidV7.generate;
 
 import com.mikesoft.soboriane.config.ClientProperties;
-import com.mikesoft.soboriane.dao.SessionAndUser;
-import com.mikesoft.soboriane.dto.MessageDto;
-import com.mikesoft.soboriane.dto.UserDto;
+import com.mikesoft.soboriane.dto.web.SessionAndUser;
+import com.mikesoft.soboriane.dto.db.MessageDto;
+import com.mikesoft.soboriane.dto.db.UserDto;
 import jakarta.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
