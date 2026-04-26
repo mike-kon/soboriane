@@ -11,7 +11,8 @@ import lombok.RequiredArgsConstructor;
 public enum ExceptionCode {
   E001("Неавторизованное подключение запрещено."),
   E002("Пользователь %s уже подключился ранее."),
-  E003("Сессия с параметром %s не найдена")
+  E003("Сессия с параметром %s не найдена"),
+  E004("Пользователь %s отсутствует")
   ;
   private final String templateMessage;
 }

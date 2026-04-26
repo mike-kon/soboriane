@@ -25,10 +25,13 @@
 .header {
     text-align: center;
 }
+
 .loginInfo {
     margin: 5px 0 10px 0;
     color: red;
     text-align: center;
+    font-size: x-small;
+    width: 35vw;
 }
 
 .loginButton {
@@ -48,6 +51,7 @@
 
 .registerItem {
     display: block;
+    margin: 1vh 0 1vh 0;
 }
 
 @media (min-width: 260px) {
@@ -72,7 +76,11 @@
     .registerField {
         display: block;
     }
+}
 
+.registerError {
+    color: red;
+    padding-left: 10vw;
 }
 
 .registerInfo {

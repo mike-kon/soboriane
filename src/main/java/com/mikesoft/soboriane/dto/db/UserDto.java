@@ -19,4 +19,6 @@ public class UserDto {
   private Boolean isAdmin;
   private LocalDate dayBegin;
   private LocalDate dayEnd;
+  private String phone;
+  private String email;
 }

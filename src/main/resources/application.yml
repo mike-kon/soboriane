@@ -35,7 +35,8 @@ app:
 logging:
   level:
     root: info
-    web: trace
-    com.mikesoft.soboriane: trace
+    web: debug
+    com.mikesoft.soboriane: debug
+    org.springframework.security: debug
 
 

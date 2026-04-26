@@ -4,9 +4,11 @@ import lombok.Getter;
 
 /**
  * Результат REST запроса.
+ *
+ * @param <T> Тип возвращаемого ответа.
  */
 @Getter
-public class RestResultDataDto<T>  extends RestResultDto {
+public class RestResultDataDto<T> extends RestResultDto {
   private final T data;
 
   /**
@@ -16,7 +18,6 @@ public class RestResultDataDto<T>  extends RestResultDto {
    */
   public RestResultDataDto(T t) {
     data = t;
-    super();
   }
 
   /**
