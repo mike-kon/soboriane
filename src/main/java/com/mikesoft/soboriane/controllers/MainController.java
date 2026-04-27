@@ -1,14 +1,19 @@
 package com.mikesoft.soboriane.controllers;
 
-import com.mikesoft.soboriane.dto.web.UserLoginDto;
+import static com.mikesoft.soboriane.controllers.RegisterController.NEED_ACCEPT_MODEL_ATTRIBUTE;
+import static com.mikesoft.soboriane.controllers.RegisterController.NICK_MODEL_ATTRIBUTE;
+import static com.mikesoft.soboriane.controllers.RegisterController.SESSION_ID_MODEL_ATTRIBUTE;
+import static com.mikesoft.soboriane.controllers.RegisterController.SET_PASSWORD_THYMELEAF;
+import static com.mikesoft.soboriane.util.MyWebUtils.addDebugElement;
+import com.mikesoft.soboriane.config.AppWebProperties;
 import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.CredentialsExpiredException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,18 +24,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/")
+@RequiredArgsConstructor
 @Slf4j
 public class MainController {
+
+  private final AppWebProperties appWebProperties;
 
   /**
    * Контроллер index.
    *
-   * @param userLogin - логин.
-   * @param model - модель для формирования thymeleaf модели.
    * @return - thymeleaf модель.
    */
   @GetMapping("/")
-  public String index(@AuthenticationPrincipal UserLoginDto userLogin, Model model) {
+  public String index() {
     return "index";
   }
 
@@ -41,6 +47,7 @@ public class MainController {
    */
   @GetMapping("login")
   public String login(HttpSession session, Model model) {
+    addDebugElement(appWebProperties.getShowDebugElement(), model, session.getId());
     Object attr = session.getAttribute("SPRING_SECURITY_LAST_EXCEPTION");
     if (attr instanceof AuthenticationException authenticationException) {
       String msgText;
@@ -51,16 +58,13 @@ public class MainController {
       switch (authenticationException) {
         case DisabledException _ -> msgText
             = "Пользователь заблокирован. Свяжитесь с администрацией.";
-        case CredentialsExpiredException _ -> {
+        case CredentialsExpiredException _,
+             LockedException _ -> {
           log.warn("Пора пользователю {} сменить пароль", user);
-          model.addAttribute("user", user);
-          // TODO: Смена пароля.
-          return "uc";
-        }
-        case LockedException _ -> {
-          log.warn("У пользователя {} процедура регистрации не закончена", user);
-          // TODO: Определение стадии регистрации и продолжение ее.
-          return "uc";
+          model.addAttribute(NICK_MODEL_ATTRIBUTE, user);
+          model.addAttribute(SESSION_ID_MODEL_ATTRIBUTE, session.getId());
+          model.addAttribute(NEED_ACCEPT_MODEL_ATTRIBUTE, false);
+          return SET_PASSWORD_THYMELEAF;
         }
         default -> msgText = authenticationException.getMessage();
       }

@@ -20,8 +20,22 @@ spring:
     default-schema: soboriane
     liquibase-schema: liquibase
     change-log: db/changelog/db.changelog-master.xml
+  jpa:
+    show-sql: true
 
 app:
+  user:
+    day-to-registration: 3
+    password-settings:
+      control: ${PASSWORD_CONTROL:true}
+      min-len-password: 8
+      min-digital: 2
+      other-register-count: 1
+      min-punctuation: 1
+      password-live: P1Y
+  web:
+    show-debug-element: ${SHOW_DEBUG_ELEMENT:false}
+    register-unknown-users: ${REGISTER_UNKNOWN_USER:disabled}
   client-configuration:
     endpoint: "/ws-work"
     brokerPrefix:
@@ -38,5 +52,6 @@ logging:
     web: debug
     com.mikesoft.soboriane: debug
     org.springframework.security: debug
+    sql: debug
 
 

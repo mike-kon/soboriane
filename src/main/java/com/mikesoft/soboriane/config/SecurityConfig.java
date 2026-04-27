@@ -40,7 +40,7 @@ public class SecurityConfig {
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) {
     http.authorizeHttpRequests(auth -> auth
-            .requestMatchers("/css/**", "/login", "/register").permitAll() // Открытые страницы
+            .requestMatchers("/css/**", "/bmp/**", "/login", "/register", "/setpassword").permitAll() // Открытые страницы
             .anyRequest().authenticated()) // Все остальные требуют аутентификации
         .formLogin(form -> form
             .loginPage("/login") // Кастомная страница входа

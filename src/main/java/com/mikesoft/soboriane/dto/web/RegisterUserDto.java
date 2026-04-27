@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Пользователь.
@@ -48,8 +49,9 @@ public class RegisterUserDto {
   private String email;
 
   @NotNull(message = "День рождения необходим хотя-бы, чтобы не забыть Вас поздравить.")
+  @DateTimeFormat(pattern = "dd.MM.yyyy")
   private LocalDate birthday;
-
+  @DateTimeFormat(pattern = "dd.MM.yyyy")
   private LocalDate angelDays;
 
   @Min(value = 1, message = "В Псалтире кафизмы начинаются с 1.")

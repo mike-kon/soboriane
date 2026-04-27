@@ -1,4 +1,4 @@
-package com.mikesoft.soboriane.enums;
+package com.mikesoft.soboriane.dto.web;
 
 import lombok.Getter;
 
@@ -36,21 +36,22 @@ public class RegisterResult {
    * Тип результата регистрации.
    */
   public enum RegisterResultType {
-    /**
-     * Пользователь нормально зарегистрирован.
-     */
+    /** Пользователь нормально зарегистрирован. */
     REGISTERED_SUCCESS,
-    /**
-     * Пользователь зарегистрирован, но требуется подтверждение.
-     */
+
+    /** Пользователь зарегистрирован, но требуется подтверждение. */
     PRE_REGISTERED,
-    /**
-     * Такой пользователь уже есть.
-     */
+
+    /** Такой пользователь уже есть. */
     USER_EXISTS,
-    /**
-     * Некоторые поля уже встречаются.
-     */
-    DUPLICATE_FIELD
+
+    /** Некоторые поля уже встречаются. */
+    DUPLICATE_FIELD,
+
+    /** Надо продолжить регистрацию. Нужен пароль */
+    CONTINUE_WITH_PASSWORD,
+
+    /** Регистрация просрочена. */
+    REGISTRATION_OVERDUE
   }
 }

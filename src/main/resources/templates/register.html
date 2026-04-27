@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация</title>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/common.css">
 </head>
 <body>
 <div class="context full">
@@ -97,10 +98,13 @@
             <div class="registerError" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></div>
             <div class="registerLabel">Номер в 20-ке:</div>
             <div class="registerField">
-                <input name="" id="" type="number" min="1" max="20" th:field="*{number}"/>
+                <input name="number" id="number" type="number" min="1" max="20" th:field="*{number}"/>
             </div>
         </div>
         <input type="submit" class="loginButton" value="регистрация">
+        <div class="techInfo" th:if="${debugSessionId != null}">
+            <span th:text="${debugSessionId}"></span>
+        </div>
     </form>
 </div>
 </body>
