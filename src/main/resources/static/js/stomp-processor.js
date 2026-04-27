@@ -1,4 +1,3 @@
-// todo Надо научится текстовые константы подгружать из application.yaml
 let stompClient = null;
 let retryConnect = 0;
 

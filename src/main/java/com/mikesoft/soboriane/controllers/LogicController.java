@@ -1,6 +1,6 @@
 package com.mikesoft.soboriane.controllers;
 
-import com.mikesoft.soboriane.dto.UserLoginDto;
+import com.mikesoft.soboriane.dto.web.UserLoginDto;
 import com.mikesoft.soboriane.services.MessageService;
 import com.mikesoft.soboriane.services.views.MenuView;
 import java.util.Map;
@@ -63,5 +63,14 @@ public class LogicController {
   @ResponseStatus(HttpStatus.OK)
   public void messageInit() {
     messageService.messageUpdate();
+  }
+
+  /**
+   * Вывод формы регистрации.
+   *
+   * @return имя формы регистрации.
+   */
+  public String register() {
+    return "register";
   }
 }

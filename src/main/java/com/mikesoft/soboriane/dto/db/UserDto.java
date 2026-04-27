@@ -1,4 +1,4 @@
-package com.mikesoft.soboriane.dto;
+package com.mikesoft.soboriane.dto.db;
 
 import java.time.LocalDate;
 import lombok.Getter;
@@ -19,4 +19,6 @@ public class UserDto {
   private Boolean isAdmin;
   private LocalDate dayBegin;
   private LocalDate dayEnd;
+  private String phone;
+  private String email;
 }

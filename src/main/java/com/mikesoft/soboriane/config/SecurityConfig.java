@@ -2,7 +2,6 @@ package com.mikesoft.soboriane.config;
 
 import com.mikesoft.soboriane.security.UserLoginService;
 import lombok.RequiredArgsConstructor;
-import org.jspecify.annotations.Nullable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -33,7 +32,7 @@ public class SecurityConfig {
   }
 
   /**
-   * Настрокай ка страниц для доступа с авторизацией и без.
+   * Настройка страниц для доступа с авторизацией и без.
    *
    * @param http протокол.
    * @return фильтр.
@@ -41,18 +40,17 @@ public class SecurityConfig {
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) {
     http.authorizeHttpRequests(auth -> auth
-            .requestMatchers("/css/**", "/login", "/register").permitAll() // Открытые страницы
-            .anyRequest().authenticated() // Все остальные требуют аутентификации
-        )
+            .requestMatchers("/css/**", "/bmp/**", "/login", "/register", "/setpassword").permitAll() // Открытые страницы
+            .anyRequest().authenticated()) // Все остальные требуют аутентификации
         .formLogin(form -> form
-            .loginPage("/login") // Ваша кастомная страница входа
+            .loginPage("/login") // Кастомная страница входа
             .defaultSuccessUrl("/", true)
             .usernameParameter("user")
             .passwordParameter("password")
             .permitAll()
         )
         .logout(LogoutConfigurer::permitAll)
-        .userDetailsService(loginService); // <-- ВОТ ОНО! Подключаем наш сервис
+        .userDetailsService(loginService);
     return http.build();
   }
 

@@ -1,6 +1,6 @@
 package com.mikesoft.soboriane.services.views;
 
-import com.mikesoft.soboriane.dto.UserDto;
+import com.mikesoft.soboriane.dto.db.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;

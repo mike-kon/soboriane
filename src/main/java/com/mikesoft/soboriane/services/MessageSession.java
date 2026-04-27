@@ -2,7 +2,7 @@ package com.mikesoft.soboriane.services;
 
 import static com.mikesoft.soboriane.exceptions.ExceptionCode.E003;
 
-import com.mikesoft.soboriane.dao.SessionAndUser;
+import com.mikesoft.soboriane.dto.web.SessionAndUser;
 import com.mikesoft.soboriane.exceptions.MessageException;
 import java.util.Optional;
 import java.util.Set;
@@ -50,7 +50,7 @@ public class MessageSession {
   }
 
   /**
-   * Проверка на существование пользователя среди  пожключенных.
+   * Проверка на существование пользователя среди  подключенных.
    *
    * @param nick - пользователь.
    * @return если  true,  то уже подключен.

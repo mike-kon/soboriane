@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>Регистрация</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="../static/css/login.css">
 </head>
 <body>
 <div>
@@ -43,9 +42,6 @@
         <div class="info">Если у Вас нет логина, зарегистрируйтесь.</div>
         <input type="button" class="loginButton" value="Регистрация"
                onclick="window.location.href='/register'"/>
-        <div class="techInfo" th:if="${debugSessionId != null}">
-            <span th:text="${debugSessionId}"></span>
-        </div>
     </div>
 </div>
 </body>
