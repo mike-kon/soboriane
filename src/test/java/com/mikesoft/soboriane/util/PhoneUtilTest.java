@@ -10,7 +10,8 @@ class PhoneUtilTest {
   @CsvSource({
       "+79036152734, +79036152734",
       "8(903)615-27-34, +79036152734",
-      "+7-903-615-2734, +79036152734"
+      "+7-903-615-2734, +79036152734",
+      "+7 903 615 27 34, +79036152734"
   })
   void phoneToCanonicalTest(String rawPhone, String canonicalPhone) {
     String actualPhone = PhoneUtil.phoneToCanonical(rawPhone);
