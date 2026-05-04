@@ -34,7 +34,7 @@ public class MessageService {
   private final ClientProperties clientProperties;
   private final SimpMessagingTemplate messagingTemplate;
   private final SpringTemplateEngine templateEngine;
-  private final MessageSession messageSessions;
+  private final UserSession userSessions;
 
   private final Set<MessageDto> cacheMessages = ConcurrentHashMap.newKeySet();
   private static final DateTimeFormatter FORMAT_TIME_MARK =
@@ -81,7 +81,7 @@ public class MessageService {
    */
   @Async
   public void messageUpdate() {
-    messageSessions.getConnected().forEach(this::sendHtmlToSession);
+    userSessions.getConnected().forEach(this::sendHtmlToSession);
   }
 
   /**

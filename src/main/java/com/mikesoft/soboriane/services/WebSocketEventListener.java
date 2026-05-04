@@ -19,7 +19,7 @@ import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 public class WebSocketEventListener {
 
   private final MessageService messageService;
-  private final MessageSession messageSessions;
+  private final UserSession userSessions;
 
   /**
    * Обработчик присоединения.
@@ -33,7 +33,7 @@ public class WebSocketEventListener {
     String sessionId = accessor.getSessionId();
     Principal user = accessor.getUser();
     if (user != null) {
-      messageSessions.userConnect(new SessionAndUser(sessionId, user.getName()));
+      userSessions.userConnect(new SessionAndUser(sessionId, user.getName()));
       log.info("Новое подключение! ID сессии: {}, user: {}", sessionId, user.getName());
     } else {
       log.warn("Connect, User not defined");
@@ -54,7 +54,7 @@ public class WebSocketEventListener {
     if (user != null) {
       log.info("Отключение! ID сессии: {}, user:{}, причина: {}", sessionId, user.getName(),
           accessor.getCommand());
-      messageSessions.userDisconnect(user.getName());
+      userSessions.userDisconnect(user.getName());
     } else {
       log.warn("Disconnect, User not defined");
     }

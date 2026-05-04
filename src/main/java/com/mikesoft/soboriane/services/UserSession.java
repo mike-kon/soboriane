@@ -11,10 +11,10 @@ import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 /**
- * Сессии сообщений.
+ * Сессии пользователей.
  */
 @Component
-public class MessageSession {
+public class UserSession {
 
   @Getter
   private final Set<SessionAndUser> connected = ConcurrentHashMap.newKeySet();

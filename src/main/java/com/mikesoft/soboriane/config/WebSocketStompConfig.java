@@ -3,7 +3,7 @@ package com.mikesoft.soboriane.config;
 import static com.mikesoft.soboriane.exceptions.ExceptionCode.E001;
 
 import com.mikesoft.soboriane.exceptions.MessageException;
-import com.mikesoft.soboriane.services.MessageSession;
+import com.mikesoft.soboriane.services.UserSession;
 import java.security.Principal;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +29,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 public class WebSocketStompConfig implements WebSocketMessageBrokerConfigurer {
 
   private final ClientProperties clientProperties;
-  private final MessageSession messageSessions;
+  private final UserSession userSessions;
 
   @Override
   public void configureMessageBroker(MessageBrokerRegistry registry) {
