@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Молитвенная просьба</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="stand.css">
+</head>
+<body>
+<div class="context">
+    <div class="header"><h1>Молитвенная просьба</h1></div>
+    <form class="standForm" th:action="@{register}" method="post" th:object="${registerUserDto}">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        <div class="formItem">
+            <div class="formItemInfo">
+                Введите тех, за кого нужно помолиться в именительном падеже.
+                Напоминаем, что молится
+            </div>
+            <div class="formItemError" th:if="${#fields.hasErrors('fieldName')}" th:errors="*{fieldName}"></div>
+            <div class="formItemError" th:if="${} != null}">
+                <span th:text="${}">ошибка</span>
+            </div>
+            <div class="formItemLabel">название:</div>
+            <div class="formItemField">
+                <input name="nick" id="nick" type="text" autofocus th:field="*{fieldName}"/>
+            </div>
+        </div>
+        <input type="submit" class="formButton" value="Подтвердить">
+        <div class="techInfo" th:if="${debugSessionId != null}">
+            <span th:text="${debugSessionId}"></span>
+        </div>
+    </form>
+</div>
+</body>
+</html>
