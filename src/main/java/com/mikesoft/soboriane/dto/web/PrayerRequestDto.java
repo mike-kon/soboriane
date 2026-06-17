@@ -1,4 +1,1 @@
-package com.mikesoft.soboriane.dto.web;
-
-public class PrayerRequestDto {
-}
+/annex/objects/SHA256E-s379--b1fd40c3c12f57a91ea3247b874a665dee408f8d26de29563304778c4361cbab.java

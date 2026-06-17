@@ -1,8 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-5.0.xsd">
-    <include file="001/changelog-init.xml" relativeToChangelogFile="true"/>
-    <include file="001/01-add-phome-and-email.xml" relativeToChangelogFile="true"/>
-</databaseChangeLog>
+/annex/objects/SHA256E-s687--18ceb991aa3000aa89dabb81b1fb147cc1211ab207dd5a8aea5bda9b7544a7f8.xml

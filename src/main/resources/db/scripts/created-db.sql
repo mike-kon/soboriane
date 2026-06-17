@@ -1,9 +1,1 @@
-/**
-* Создание БД.
-*
-* Этот скрипт запускается на новой системе от имени пользователя postgresql
-* или любого другого пользователя с правом superuser.
-* Скрипт должен отрпботать до запуска liquibase.
-*/
-
-create database soboriane owner koma_worker ENCODING  = 'UTF8';
+/annex/objects/SHA256E-s397--98c7460100fbbde2a3a8a6cc3648ebb7a5d6ae6a53439387eaa158f3a03db43a.sql

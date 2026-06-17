@@ -1,18 +1,1 @@
-package com.mikesoft.soboriane.dto.web;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-/**
- * Структура идентификатора сессии.
- */
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class SessionAndUser {
-  private String sessionId;
-  private String nick;
-}
+/annex/objects/SHA256E-s364--4c9c51dc01d6e5758430133d1074b570de08067dd71755e8f76a7d1676ac88f4.java

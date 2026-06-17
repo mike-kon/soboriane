@@ -1,17 +1,1 @@
-package com.mikesoft.soboriane.config;
-
-import com.mikesoft.soboriane.enums.RegisterUnknownUsers;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-
-@Component
-@ConfigurationProperties(prefix = "app.web")
-@Getter
-@Setter
-public class AppWebProperties {
-
-  private Boolean showDebugElement;
-  private RegisterUnknownUsers registerUnknownUsers;
-}
+/annex/objects/SHA256E-s464--93ec9e2914f8570d97885405ca646d0fd2800cc68332c3ef7cec40ccd501adf0.java

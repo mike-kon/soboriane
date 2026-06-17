@@ -1,9 +1,1 @@
-/**
-* Создание схемы и раздача  прав
-*/
-
-create schema soboriane;
-create schema liquibase;
-
-grant CREATE, USAGE on schema soboriane to koma_worker;
-grant CREATE, USAGE on schema liquibase to koma_worker;
+/annex/objects/SHA256E-s228--9b9072db4ba086c81e6dd8c68e209edb95d3a26bf441de5ad25fb69e059b64c7.sql

@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
-
-    <changeSet id="0" author="admin">
-
-    </changeSet>
-</databaseChangeLog>
+/annex/objects/SHA256E-s7552--61d4679742096c4d12c854f47d846f99e95e3d39e9ade5e689e92f5a4ee206ff.xml

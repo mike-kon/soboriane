@@ -1,18 +1,1 @@
-package com.mikesoft.soboriane.services.cache;
-
-import jakarta.annotation.PostConstruct;
-import java.util.List;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
-
-@Component
-@RequiredArgsConstructor
-public class CacheService {
-
-  private final List<CacheData<?, ?>> allData;
-
-  @PostConstruct
-  public void init() {
-    allData.forEach(CacheData::load);
-  }
-}
+/annex/objects/SHA256E-s402--044afc4ca9fd20b01d79c20dfc95fe5789053701e328b19e9929a031e06da743.java

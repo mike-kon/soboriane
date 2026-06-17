@@ -1,12 +1,1 @@
-package com.mikesoft.soboriane;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
-class SoborianeApplicationTests {
-
-  void contextLoads() {
-  }
-
-}
+/annex/objects/SHA256E-s212--d2b2da771797ef10c7d4bec03ee8d725431546cb6e4a4da358d2c336847fc579.java

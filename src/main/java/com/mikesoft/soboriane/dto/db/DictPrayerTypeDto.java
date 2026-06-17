@@ -1,5 +1,1 @@
-package com.mikesoft.soboriane.dto.db;
-
-
-public class DictPrayerypeDto {
-}
+/annex/objects/SHA256E-s1464--75afe84d9be3dc51501d749966399b9c303e0f88102f1b5126150bedd18d25fa.java

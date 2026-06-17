@@ -1,10 +1,1 @@
-package com.mikesoft.soboriane.enums;
-
-/**
- * Результаты REST - запроса.
- */
-public enum RestResultEnum {
-  OK,
-  ERROR,
-  TIMEOUT
-}
+/annex/objects/SHA256E-s150--c5f0a9b74e45fcc709c15e2b2cf4ff708a722b02dd8ce5ea36a95efa5e1b09f3.java

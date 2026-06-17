@@ -1,17 +1,1 @@
-package com.mikesoft.soboriane.security;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
-class CreatePasswordForAdminTest {
-
-  @Test
-  void createPassword() {
-    PasswordEncoder encoder = new BCryptPasswordEncoder();
-    String encodedPassword = encoder.encode("123456");
-    System.out.println(encodedPassword); // Скопируйте это в БД
-    Assertions.assertNotNull(encodedPassword);
-  }
-}
+/annex/objects/SHA256E-s578--e1ac35ef878d70df854f8cc79039313c4493022592ada1cde2ce7681235806f6.java

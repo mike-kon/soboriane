@@ -1,4 +1,1 @@
-package com.mikesoft.soboriane.enums;
-
-public class PrayerTypeControl {
-}
+/annex/objects/SHA256E-s401--60586bd755f2f53cf7ad57c9f31d090cbff841eb64874ef81ab79093dbc76752.java

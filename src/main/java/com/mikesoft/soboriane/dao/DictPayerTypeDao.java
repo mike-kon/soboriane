@@ -1,4 +1,1 @@
-package com.mikesoft.soboriane.dao;
-
-public class DictPayerTypeDao {
-}
+/annex/objects/SHA256E-s696--638b329afdc09f0d18a82a3eae83f22d179a3512f707d885f91af4e6df84e356.java

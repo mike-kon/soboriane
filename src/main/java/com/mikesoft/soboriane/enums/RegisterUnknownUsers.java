@@ -1,17 +1,1 @@
-package com.mikesoft.soboriane.enums;
-
-/**
- * Как регистрировать пользователей не из предварительного списка.
- */
-public enum RegisterUnknownUsers {
-
-  /** Через подтверждение администратора */
-  @Deprecated
-  NEED_ACCEPT,
-
-  /** Как и известных */
-  AS_KNOWN,
-
-  /** Никак */
-  DISABLED
-}
+/annex/objects/SHA256E-s396--d904cab384a423e91c0ad986a91a217fe86dd1039e8535130f9714362d2815e0.java

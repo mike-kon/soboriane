@@ -1,15 +1,1 @@
-package com.mikesoft.soboriane.enums;
-
-/**
- * Типы сообщений.
- */
-public enum MessageType {
-  /** Молитвенная просьба. */
-  PRAYER,
-  /** Поздравление. */
-  GREETING,
-  /** Просто сообщение. */
-  MESSAGE,
-  /** Административное сообщение. */
-  ADMIN
-}
+/annex/objects/SHA256E-s335--777fa0a2240e040099bfbb0e13ae1ea90220090d995c6c55ab71a12da63a6b01.java

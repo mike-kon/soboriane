@@ -1,18 +1,1 @@
-package com.mikesoft.soboriane.exceptions;
-
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-
-/**
- * Известные типы сообщений об ошибке.
- */
-@Getter
-@RequiredArgsConstructor
-public enum ExceptionCode {
-  E001("Неавторизованное подключение запрещено."),
-  E002("Пользователь %s уже подключился ранее."),
-  E003("Сессия с параметром %s не найдена"),
-  E004("Пользователь %s отсутствует")
-  ;
-  private final String templateMessage;
-}
+/annex/objects/SHA256E-s590--ae820dd330b98d7023844645f0d4f6a3a93db4ca77c7dadfb92fd073074f38ba.java

@@ -1,14 +1,1 @@
-package com.mikesoft.soboriane.config;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-public class MainConfiguration {
-
-  @Bean
-  public ObjectMapper objectMapper() {
-    return new ObjectMapper();
-  }
-}
+/annex/objects/SHA256E-s414--d8fb87c95f5b79bd6722ab5837727b8c08b55dce2002899bb5231fc9b87d25a9.java

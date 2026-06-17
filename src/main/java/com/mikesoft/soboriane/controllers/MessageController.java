@@ -1,4 +1,1 @@
-package com.mikesoft.soboriane.controllers;
-
-public class MessageController {
-}
+/annex/objects/SHA256E-s4074--d1c9b7c87b110f6520b775d1e928573757046f93cd1e221906ab9f86b2d67faa.java
